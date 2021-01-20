@@ -1,4 +1,4 @@
-# Nobody-plays-Chess
+# Nobody-Plays-Chess
 What to do when you like to play chess in a real board but nobody around you plays chess?
 
 How about use the C++ power to create a chess board and a camera to track the moves and sending them to chess.com, lichess.com 
