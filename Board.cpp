@@ -11,40 +11,27 @@ Board::Board() {
     }
 }
 
-void Board::printBoardTest(){
-    //Assign pieces to square
-    for(auto p : thePieces){
-        int i = p->getSquare();
-        squares[i].setPiece(p);
-    }
+void Board::printBoard(){
     //Print Board squares with pieces and empty
+    int rank =8;
     for(int i=0; i<=63;i++){
+        if(i==A8 || i==A7 || i==A6 || i==A5 || i==A4 || i==A3 || i==A2 || i==A1){
+            cout<<rank<<" ";
+            rank--;
+        }
         if(squares[i].getPiece()){
             auto p = squares[i].getPiece();
             cout <<p->getUnicode()<<" ";
         }else{
-            cout<<"* ";
+            cout<<". ";
         }
-        if(i==7 || i==15 || i==23 || i==31 || i==39 || i==47 || i==55)
+        if(i==H8 || i==H7 || i==H6 || i==H5 || i==H4 || i==H3 || i==H2)
             cout<<endl;
     }
+    cout<<endl<<"  A B C D E F G H"<<endl;
 }
 
-void Board::printEmptyBoard(void){
-    for(int rank = 9; rank >=1; rank--){
-        if(rank >= 2){
-            cout<<rank-1<<" ";
-            for(int file =1 ;  file<=8;   file++)
-                cout<<". ";
-        }
-        else{
-            cout<<"  A B C D E F G H";
-        }
-        cout<<endl;
-    }
-}
-
-void Board::getPiecesFromFEN(string fen){
+void Board::getFENPieces(string fen){
     int squareCounter=0;
     Piece *newPiece = nullptr;
     tokenizeRanks(fen);
@@ -117,6 +104,11 @@ void Board::getPiecesFromFEN(string fen){
                 squareCounter+=8; break;
             }
         }
+    }
+    //Link all pieces to square.
+    for(auto p : thePieces){
+        int i = p->getSquare();
+        squares[i].setPiece(p);
     }
 }
 void Board::addPiece(Piece *theNewPiece, int &squareCounter){

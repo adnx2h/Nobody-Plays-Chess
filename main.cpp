@@ -6,8 +6,9 @@ using namespace std;
 int main() {
     cout << "Hello World!" << endl;
     Board myBoard;
-    myBoard.printEmptyBoard();
-    myBoard.getPiecesFromFEN(FEN_START);
-    myBoard.printBoardTest();
+    myBoard.printBoard();
+    myBoard.getFENPieces(FEN_MATE);
+    cout<<endl;
+    myBoard.printBoard();
   return 0;
 }

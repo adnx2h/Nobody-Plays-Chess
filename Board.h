@@ -20,11 +20,9 @@ private:
 
 public:
     Board();
-    void printEmptyBoard(void);
-    void loadFEN(string fen);
-    void getPiecesFromFEN(string fen);
+    void getFENPieces(string fen);
+    void printBoard();
     void move();
-    void printBoardTest();
 };
 
 #endif // BOARD_H
