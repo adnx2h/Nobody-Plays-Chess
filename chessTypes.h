@@ -1,8 +1,6 @@
 #ifndef CHESSTYPES_H
 #define CHESSTYPES_H
-
 #include "string"
-//#include "pieces/Piece.h"
 
 using namespace std;
 enum SquareName{
@@ -16,12 +14,6 @@ enum SquareName{
     A1,B1,C1,D1,E1,F1,G1,H1
 };
 
-struct SquareState {
-    SquareName squareId;
-    string piece;
-//    Piece pieza;
-};
-
 enum ChessPiece{
     PAWNN,
     ROOK,
@@ -30,9 +22,6 @@ enum ChessPiece{
     QUEEN,
     KING
 };
-
-const string unicodeWhitePieces = "♙♖♘♗♕♔";
-const string unicodeBlackPieces = "♟︎♜♞♝♛♚";
 
 const string W_PAWN = "♙";
 const string W_ROOK = "♖";

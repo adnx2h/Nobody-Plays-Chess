@@ -44,27 +44,6 @@ void Board::printEmptyBoard(void){
     }
 }
 
-void Board::printFEN()
-{
-    for(int i=0; i<=63;i++){
-        //        printSquare((Casilla)i);
-        printSquareObj((SquareName)i);
-        if(i==7 || i==15 || i==23 || i==31 || i==39 || i==47 || i==55)
-            cout<<endl;
-    }
-    cout<<endl;
-}
-
-void Board::printSquare(SquareName sq)
-{
-    cout<<_board[int(sq)].piece<<" ";
-}
-
-void Board::printSquareObj(SquareName sq)
-{
-    cout<<_board[int(sq)].piece<<" ";
-}
-
 void Board::getPiecesFromFEN(string fen){
     int squareCounter=0;
     Piece *newPiece = nullptr;
@@ -75,8 +54,6 @@ void Board::getPiecesFromFEN(string fen){
             case 'P':
                 newPiece = Piece::createNewPiece(PAWNN, WHITE);
                 addPiece(newPiece, squareCounter);
-                //                newPiece->setSquare((SquareName)squareCounter);
-                //                squareCounter++;
                 break;
             case 'R':
                 newPiece = Piece::createNewPiece(ROOK, WHITE);
@@ -138,10 +115,7 @@ void Board::getPiecesFromFEN(string fen){
                 squareCounter+=7; break;
             case '8':
                 squareCounter+=8; break;
-                //                setEmptySquare(7,squareCounter);break;
-
             }
-            //            thePieces.push_back(newPiece);
         }
     }
 }
@@ -149,95 +123,6 @@ void Board::addPiece(Piece *theNewPiece, int &squareCounter){
     theNewPiece->setSquare((SquareName)squareCounter);
     squareCounter++;
     thePieces.push_back(theNewPiece);
-}
-
-void Board::loadFEN(string fen)
-{
-    int sqCounter=0;
-    tokenizeRanks(fen);
-    for(string rank : _ranks){
-        for(char c : rank){
-            switch (c) {
-            case 'P':
-                //                _board[squareCounter].piece=W_PAWN; incrementSquare(squareCounter);
-                _board[sqCounter].piece=unicodeWhitePieces[0]; incrementSquare(sqCounter);
-                break;
-            case 'R':
-                _board[sqCounter].piece=W_ROOK; incrementSquare(sqCounter);
-                break;
-            case 'N':
-                _board[sqCounter].piece=W_KNIGHT; incrementSquare(sqCounter);
-                break;
-            case 'B':
-                _board[sqCounter].piece=W_BISHOP; incrementSquare(sqCounter);
-                break;
-            case 'Q':
-                _board[sqCounter].piece=W_QUEEN; incrementSquare(sqCounter);
-                break;
-            case 'K':
-                _board[sqCounter].piece=W_KING; incrementSquare(sqCounter);
-                break;
-            case 'p':
-                _board[sqCounter].piece=B_PAWN; incrementSquare(sqCounter);
-                break;
-            case 'r':
-                _board[sqCounter].piece=B_ROOK; incrementSquare(sqCounter);
-                break;
-            case 'n':
-                _board[sqCounter].piece=B_KNIGHT; incrementSquare(sqCounter);
-                break;
-            case 'b':
-                _board[sqCounter].piece=B_BISHOP; incrementSquare(sqCounter);
-                break;
-            case 'q':
-                _board[sqCounter].piece=B_QUEEN; incrementSquare(sqCounter);
-                break;
-            case 'k':
-                _board[sqCounter].piece=B_KING; incrementSquare(sqCounter);
-                break;
-            case '1':
-                setEmptySquare(0,sqCounter); break;
-            case '2':
-                setEmptySquare(1,sqCounter); break;
-            case '3':
-                setEmptySquare(2,sqCounter); break;
-            case '4':
-                setEmptySquare(3,sqCounter); break;
-            case '5':
-                setEmptySquare(4,sqCounter); break;
-            case '6':
-                setEmptySquare(5,sqCounter); break;
-            case '7':
-                setEmptySquare(6,sqCounter); break;
-            case '8':
-                setEmptySquare(7,sqCounter);break;
-            }
-        }
-    }
-}
-
-string Board::getBoardFen()
-{
-    vector<string> ranks;
-    string tmp;
-    for(int i=0; i<=63;i++){
-        for(int j=0;j<=7;j++){
-            tmp = _board[i].piece;
-        }
-    }
-}
-
-void Board::setEmptySquare(int j, int &squareCounter){
-    for(int i=0; i<=j;i++){
-        _board[squareCounter].squareId =(SquareName)squareCounter;
-        _board[squareCounter].piece=EMPTY;
-        squareCounter++;
-    }
-}
-
-void Board::incrementSquare(int &squareCounter){
-    _board[squareCounter].squareId=(SquareName)squareCounter;
-    squareCounter++;
 }
 
 void Board::tokenizeRanks(string fen){
