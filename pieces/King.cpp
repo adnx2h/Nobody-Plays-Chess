@@ -3,10 +3,14 @@ King::King(Color c)
 {
     this->color = c;
     this->status=ACTIVE;
-    if(c == WHITE)
+    if(c == WHITE){
+        this->FENchar = "K";
         this->unicodePiece = W_KING;
-    else
+    }
+    else{
+        this->FENchar = "k";
         this->unicodePiece = B_KING;
+    }
 }
 
 King::King(){
@@ -39,6 +43,11 @@ SquareName King::getSquare()
 string King::getUnicode()
 {
     return this->unicodePiece;
+}
+
+string King::getFENchar()
+{
+    return this->FENchar;
 }
 
 Status King::getStatus()

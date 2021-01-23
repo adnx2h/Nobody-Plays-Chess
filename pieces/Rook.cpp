@@ -4,10 +4,14 @@ Rook::Rook(Color c)
 {
     this->color = c;
     this->status=ACTIVE;
-    if(c == WHITE)
+    if(c == WHITE){
+        this->FENchar = "R";
         this->unicodePiece = W_ROOK;
-    else
+    }
+    else{
+        this->FENchar = "r";
         this->unicodePiece = B_ROOK;
+    }
 }
 
 Rook::Rook(){
@@ -40,6 +44,11 @@ SquareName Rook::getSquare()
 string Rook::getUnicode()
 {
     return this->unicodePiece;
+}
+
+string Rook::getFENchar()
+{
+    return this->FENchar;
 }
 
 Status Rook::getStatus()

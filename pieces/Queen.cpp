@@ -3,10 +3,14 @@ Queen::Queen(Color c)
 {
     this->color = c;
     this->status=ACTIVE;
-    if(c == WHITE)
+    if(c == WHITE){
+        this->FENchar = "Q";
         this->unicodePiece = W_QUEEN;
-    else
+    }
+    else{
+        this->FENchar = "q";
         this->unicodePiece = B_QUEEN;
+    }
 }
 
 Queen::Queen(){
@@ -39,6 +43,11 @@ SquareName Queen::getSquare()
 string Queen::getUnicode()
 {
     return this->unicodePiece;
+}
+
+string Queen::getFENchar()
+{
+    return this->FENchar;
 }
 
 Status Queen::getStatus()

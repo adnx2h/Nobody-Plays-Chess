@@ -3,10 +3,15 @@ Knight::Knight(Color c)
 {
     this->color = c;
     this->status=ACTIVE;
-    if(c == WHITE)
+    if(c == WHITE){
+        this->FENchar = "N";
         this->unicodePiece = W_KNIGHT;
+    }
     else
+    {
+        this->FENchar = "n";
         this->unicodePiece = B_KNIGHT;
+    }
 }
 
 Knight::Knight(){
@@ -39,6 +44,11 @@ SquareName Knight::getSquare()
 string Knight::getUnicode()
 {
     return this->unicodePiece;
+}
+
+string Knight::getFENchar()
+{
+    return this->FENchar;
 }
 
 Status Knight::getStatus()

@@ -15,12 +15,14 @@ public:
     Color getColor();
     SquareName getSquare();
     string getUnicode();
+    string getFENchar();
 
 private:
     Status status;
     Color color;
     SquareName square;
     string unicodePiece;
+    string FENchar;
 };
 
 #endif // Rook_H

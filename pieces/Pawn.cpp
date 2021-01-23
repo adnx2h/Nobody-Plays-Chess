@@ -4,10 +4,15 @@ Pawn::Pawn(Color c)
 {
     this->color = c;
     this->status=ACTIVE;
-    if(c == WHITE)
+
+    if(c == WHITE){
+        this->FENchar = "P";
         this->unicodePiece = W_PAWN;
-    else
+    }
+    else{
         this->unicodePiece = B_PAWN;
+        this->FENchar = "p";
+    }
 }
 
 Pawn::Pawn(){
@@ -40,6 +45,11 @@ SquareName Pawn::getSquare()
 string Pawn::getUnicode()
 {
     return this->unicodePiece;
+}
+
+string Pawn::getFENchar()
+{
+    return this->FENchar;
 }
 
 Status Pawn::getStatus()

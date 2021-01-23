@@ -6,9 +6,10 @@ using namespace std;
 int main() {
     cout << "Hello World!" << endl;
     Board myBoard;
-    myBoard.printBoard();
-    myBoard.getFENPieces(FEN_MATE);
+
+    myBoard.setFEN(FEN_START);
     cout<<endl;
     myBoard.printBoard();
+    cout <<myBoard.getFen();
   return 0;
 }

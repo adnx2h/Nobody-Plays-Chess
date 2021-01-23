@@ -49,7 +49,7 @@ enum Status{
 
 const static string FEN_START = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 const static string FEN_FULL = "KKKKKKKK/rrrrrrrr/BBBBBBBB/qqqqqqqq/NNNNNNNN/pppppppp/RRRRRRRR/KKKKKKKK w - - 0 1";
-const static string FEN_MATE = "R2k4/1R6/8/pPp2P2/2p1K3/2p4p/P1N2P1P/8 b - - 0 1";
+const static string FEN_MATE = "R2k4/1R6/2B5/pPp2P2/2p1K3/2p4p/P1N2P1P/8 b - - 0 1";
 const static string FEN_TRICKY = "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1";
 const static string FEN_PYRAMID = "K7/8/8/8/8/8/8/8 w - - 0 1";
 

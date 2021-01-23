@@ -6,9 +6,42 @@ using namespace std;
 
 Board::Board() {
     for(int i=0; i<=63;i++){
-        squares[i].setPiece(nullptr);
-        squares[i].setSquareName(static_cast<SquareName>(i));
+        theSquares[i].setPiece(nullptr);
+        theSquares[i].setSquareName(static_cast<SquareName>(i));
     }
+}
+
+string Board::getFen()
+{
+    string rawFen, fen;
+    for(auto square : theSquares){
+        auto sqName = square.getSquareName();
+        if(auto piece = square.getPiece()){ //Square is not empty
+            rawFen += piece->getFENchar();
+            if(sqName==H8||sqName==H7||sqName==H6||sqName==H5||sqName==H4||sqName==H3||sqName==H2)
+                rawFen+="/";
+        }
+        else{//Square is empty
+            rawFen+="1";
+            if(sqName==H8||sqName==H7||sqName==H6||sqName==H5||sqName==H4||sqName==H3||sqName==H2)
+                rawFen+="/";
+        }
+    }
+    //At this point rawFen is filled.
+    //Now shrink it.
+    int sum=1;
+    for(int i=0; i<= rawFen.length(); i++){
+        if(rawFen[i]=='1' && rawFen[i+1] == '1'){//Two or more empty squares
+            sum++;
+        }else{//Is a piece
+            if(sum>=2)
+                fen+=to_string(sum);
+            else
+                fen+=rawFen[i];
+            sum=1;
+        }
+    }
+    return fen;
 }
 
 void Board::printBoard(){
@@ -19,8 +52,8 @@ void Board::printBoard(){
             cout<<rank<<" ";
             rank--;
         }
-        if(squares[i].getPiece()){
-            auto p = squares[i].getPiece();
+        if(theSquares[i].getPiece()){
+            auto p = theSquares[i].getPiece();
             cout <<p->getUnicode()<<" ";
         }else{
             cout<<". ";
@@ -31,11 +64,11 @@ void Board::printBoard(){
     cout<<endl<<"  A B C D E F G H"<<endl;
 }
 
-void Board::getFENPieces(string fen){
+void Board::setFEN(string fen){
     int squareCounter=0;
     Piece *newPiece = nullptr;
     tokenizeRanks(fen);
-    for(string rank : _ranks){
+    for(string rank : theRanks){
         for(char c : rank){
             switch (c) {
             case 'P':
@@ -108,9 +141,10 @@ void Board::getFENPieces(string fen){
     //Link all pieces to square.
     for(auto p : thePieces){
         int i = p->getSquare();
-        squares[i].setPiece(p);
+        theSquares[i].setPiece(p);
     }
 }
+
 void Board::addPiece(Piece *theNewPiece, int &squareCounter){
     theNewPiece->setSquare((SquareName)squareCounter);
     squareCounter++;
@@ -122,7 +156,7 @@ void Board::tokenizeRanks(string fen){
     string rank, rank8;
     int i=0;
     while(std::getline(iss, rank, '/')) {
-        if(_ranks.size() == 7){
+        if(theRanks.size() == 7){
             do{        //Get rank 8, stops in first space.
                 if (rank[i] != ' '){
                     rank8 += rank[i];
@@ -130,9 +164,9 @@ void Board::tokenizeRanks(string fen){
                 }
                 else break;
             }while (1);
-            _ranks.push_back(rank8);
+            theRanks.push_back(rank8);
         }else
-            _ranks.push_back(rank);
+            theRanks.push_back(rank);
     }
 }
 

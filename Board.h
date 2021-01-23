@@ -14,13 +14,14 @@ private:
     void tokenizeRanks(string fen);
     void addPiece(Piece *theNewPiece, int &squareCounter);
 
-    vector<string> _ranks;
-    Square squares[64];
+    vector<string> theRanks;
+    Square theSquares[64];
     vector<Piece*> thePieces;
 
 public:
     Board();
-    void getFENPieces(string fen);
+    void setFEN(string fen);
+    string getFen();
     void printBoard();
     void move();
 };

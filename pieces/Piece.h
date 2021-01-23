@@ -15,15 +15,9 @@ public:
     virtual Color getColor() = 0;
     virtual SquareName getSquare() = 0;
     virtual string getUnicode() = 0;
+    virtual string getFENchar()= 0;
 
     static Piece* createNewPiece(ChessPiece p, Color c);
-
-//    Piece(Status s);
-
-private:
-//    Status status;
-//    Color color;
-//    SquareName squareName;
 };
 
 #endif // PIECE_H

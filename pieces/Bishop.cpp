@@ -3,10 +3,14 @@ Bishop::Bishop(Color c)
 {
     this->color = c;
     this->status=ACTIVE;
-    if(c == WHITE)
+    if(c == WHITE){
+        this->FENchar = "B";
         this->unicodePiece = W_BISHOP;
-    else
+    }
+    else{
+        this->FENchar = "b";
         this->unicodePiece = B_BISHOP;
+    }
 }
 
 Bishop::Bishop(){
@@ -39,6 +43,11 @@ SquareName Bishop::getSquare()
 string Bishop::getUnicode()
 {
     return this->unicodePiece;
+}
+
+string Bishop::getFENchar()
+{
+    return this->FENchar;
 }
 
 Status Bishop::getStatus()
