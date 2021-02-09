@@ -1,0 +1,25 @@
+Most Pieces movements       Offsets
+===================================
+Right Diagonal	a1-h8	       -9
+                h8-a1	       +7
+Left Diagonal	h1-a8	       -9
+                a8-h1	       +9
+Up	            a1-a2	       -8
+Down	        a8-a7	       +8
+Left	        e1-d1          -1
+Right           e1-f1	       +1
+
+
+Knight movements:
+===================================
+1 o'Clock	     e4-f6        -15
+2 o'Clock	     e4-g5	      -6
+4 o'Clock	     e4-g3	      +10
+5 o'Clock	     e4-f2	      +17
+7 o'Clock	     e4-d2	      +15
+8 o'Clock	     e4-c3	      +6
+10 o'Clock	     e4-c5	     -10
+11 o'Clock	     e4-d6	     -17
+
+
+

@@ -23,3 +23,8 @@ SquareName Square::getSquareName()
 {
     return this->squareName;
 }
+
+void Square::clear()
+{
+    this->piece = nullptr;
+}

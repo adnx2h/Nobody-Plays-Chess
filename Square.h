@@ -11,6 +11,7 @@ public:
     Piece* getPiece();
     void setSquareName(SquareName c);
     SquareName getSquareName();
+    void clear();
 
 private:
     Piece *piece;

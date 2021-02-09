@@ -4,7 +4,9 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        Bitboard.cpp \
         Board.cpp \
+        Move.cpp \
         Square.cpp \
         pieces/King.cpp \
         pieces/Queen.cpp \
@@ -16,7 +18,9 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
+    Bitboard.h \
     Board.h \
+    Move.h \
     Square.h \
     pieces/King.h \
     pieces/Queen.h \

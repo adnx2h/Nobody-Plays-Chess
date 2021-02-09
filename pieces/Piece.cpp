@@ -14,7 +14,7 @@ Piece* Piece::createNewPiece(ChessPiece p, Color c)
 {
     Piece *piece = nullptr;
     switch (p) {
-    case PAWNN:
+    case PAWN:
         piece = new Pawn(c);
         break;
     case ROOK:
