@@ -19,7 +19,6 @@ int main() {
         myBoard->printBoard();
         myBoard->move(WHITE,"e5");
         myBoard->printBoard();
-//        myBoard->printBitboard(myBoard->bitboardWhite);
 //        cout<<myBoard.getFen()<<endl;
 //        cout<<myBoard->getFile()<<endl;
 //        cout<<myBoard->getRank()<<endl;
