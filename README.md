@@ -5,3 +5,9 @@ How about use the C++ power to create a chess board and a camera to track the mo
 to play in a real board with real people.
 
 Yes i will move clear and dark pieces but in the long run a robotic arm will move one side.
+
+How to build:
+ mkdir build
+ cd build
+ cmake ..
+ make
